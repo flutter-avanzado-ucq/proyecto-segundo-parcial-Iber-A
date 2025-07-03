@@ -18,6 +18,8 @@ class Task {
     this.dueTime,
     this.notificationId,
   });
+
+  get key => null;
 }
 
 /// Provider que gestiona el estado de las tareas en la aplicación

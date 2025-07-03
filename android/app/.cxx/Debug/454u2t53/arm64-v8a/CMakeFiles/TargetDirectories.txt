@@ -1,0 +1,2 @@
+D:/iberA/Documents/aplicaiones/proyecto-segundo-parcial-Iber-A-1/android/app/.cxx/Debug/454u2t53/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/iberA/Documents/aplicaiones/proyecto-segundo-parcial-Iber-A-1/android/app/.cxx/Debug/454u2t53/arm64-v8a/CMakeFiles/rebuild_cache.dir

@@ -5,7 +5,10 @@ import '../widgets/card_tarea.dart';
 import '../widgets/header.dart';
 import '../widgets/add_task_sheet.dart';
 import '../provider_task/task_provider.dart';
-import '../provider_task/theme_provider.dart'; // ✅ Nuevo import
+import '../provider_task/theme_provider.dart'; // Nuevo import
+
+// Importar AppLocalizations generado
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
@@ -46,12 +49,14 @@ class _TaskScreenState extends State<TaskScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     final taskProvider = context.watch<TaskProvider>();
+    final localizations = AppLocalizations.of(context)!; // Obtener localización actual
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tareas Pro'),
+        // Usar traducción en el título
+        title: Text("Titulo"),
         actions: [
-          // ✅ IconButton para cambiar tema claro/oscuro
+          // IconButton para cambiar tema claro/oscuro
           Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return IconButton(
@@ -60,7 +65,8 @@ class _TaskScreenState extends State<TaskScreen> with SingleTickerProviderStateM
                       ? Icons.dark_mode
                       : Icons.light_mode,
                 ),
-                tooltip: 'Cambiar tema',
+                // Usar traducción en el tooltip
+                tooltip: localizations.changeTheme,
                 onPressed: () {
                   themeProvider.toggleTheme();
                 },

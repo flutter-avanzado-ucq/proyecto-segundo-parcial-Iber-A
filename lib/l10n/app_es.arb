@@ -1,0 +1,25 @@
+{
+  "@@locale": "es",
+  "appTitle": "Tareas Pro",
+  "addTask": "Agregar tarea",
+  "editTask": "Editar tarea",
+  "deleteTask": "Eliminar tarea",
+  "taskDetails": "Detalles de la tarea",
+  "changeTheme": "Cambiar tema",
+  "addNewTask": "Agregar nueva tarea",
+  "selectDate": "Seleccionar fecha",
+  "timeLabel": "Hora:",
+  "addTask": "Agregar tarea",
+  "dueDate": "Vence:",
+  "hourLabel": "Hora:",
+  "titleLabel": "Título",
+  "changeDate": "Cambiar fecha",
+  "saveChanges": "Guardar cambios",
+  "greeting": "Hola, Iber 🗣️🗣️🗣️🗣️",
+  "todayTasks": "Estas son tus tareas para hoy",
+  "name": "nombre",
+  
+   
+  "changeDate": "Cambiar Fecha",
+  "changeTime": "Cambiar Hora"
+}

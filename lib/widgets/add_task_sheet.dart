@@ -130,7 +130,7 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
             children: [
               ElevatedButton(
                 onPressed: _pickDate,
-                child: Text("Selecciona una fecha"),
+                child: Text(localizations.selectDate),
               ),
               const SizedBox(width: 10),
               if (_selectedDate != null)

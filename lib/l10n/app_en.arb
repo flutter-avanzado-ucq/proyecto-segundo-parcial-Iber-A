@@ -1,26 +1,44 @@
 {
   "@@locale": "en",
-  "appTitle": "Task Manager",
+  "appTitle": "Tasks Pro",
   "addTask": "Add task",
   "editTask": "Edit task",
   "deleteTask": "Delete task",
-   "changeTheme": "Change theme",
+  "taskDetails": "Task details",
+  "changeTheme": "Change theme",
   "addNewTask": "Add new task",
   "description": "Description",
   "selectDate": "Select date",
-  "selectTime": "Select time",
+  "selectTime": "Select Time",
   "timeLabel": "Time:",
-  "addTask": "Add task",
   "dueDate": "Due:",
-  "hourLabel": "Time:",
+  "hourLabel": "Hour:",
   "titleLabel": "Title",
-  "timeLabel": "Time:",
+  "changeDate": "Change date",
+  "changeTime": "Change time",
   "saveChanges": "Save changes",
-  "greeting": "Hi, Iber 🗣️🗣️🗣️🗣️",
+  "greeting": "Hello, Iber 🗣️🗣️🗣️🗣️",
   "todayTasks": "These are your tasks for today",
   "name": "name",
-
-  
-  "changeDate": "Change Date",
-  "changeTime": "Change Time"
+  "pendingTasks": "{count, plural, =0{No pending tasks} =1{1 pending task} other{{count} pending tasks}}",
+  "@pendingTasks": {
+    "description": "Shows the number of pending tasks",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "dueDate": "due {date}",
+  "@dueDate": {
+    "description": "Shows the due date of the task",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "language": "Language",
+  "settings": "Settings",
+  "theme": "Theme"
 }

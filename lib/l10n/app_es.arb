@@ -7,19 +7,38 @@
   "taskDetails": "Detalles de la tarea",
   "changeTheme": "Cambiar tema",
   "addNewTask": "Agregar nueva tarea",
+  "description": "Descripción",
   "selectDate": "Seleccionar fecha",
+  "selectTime": "Seleccionar Hora",
   "timeLabel": "Hora:",
-  "addTask": "Agregar tarea",
   "dueDate": "Vence:",
   "hourLabel": "Hora:",
   "titleLabel": "Título",
   "changeDate": "Cambiar fecha",
+  "changeTime": "Cambiar hora",
   "saveChanges": "Guardar cambios",
   "greeting": "Hola, Iber 🗣️🗣️🗣️🗣️",
   "todayTasks": "Estas son tus tareas para hoy",
   "name": "nombre",
-  
-   
-  "changeDate": "Cambiar Fecha",
-  "changeTime": "Cambiar Hora"
+  "pendingTasks": "{count, plural, =0{No tienes tareas pendientes} =1{Tienes 1 tarea pendiente} other{Tienes {count} tareas pendientes}}",
+  "@pendingTasks": {
+    "description": "Muestra el número de tareas pendientes",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "dueDate": "vence el {date}",
+  "@dueDate": {
+    "description": "Muestra la fecha de vencimiento de la tarea",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "language": "Idioma",
+  "settings": "Configuración",
+  "theme": "Tema"
 }

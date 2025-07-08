@@ -6,6 +6,7 @@ import '../widgets/header.dart';
 import '../widgets/add_task_sheet.dart';
 import '../provider_task/task_provider.dart';
 import '../provider_task/theme_provider.dart'; // Nuevo import
+import 'settings_screen.dart'; // Importar pantalla de configuración
 
 // Importar AppLocalizations generado
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -53,10 +54,19 @@ class _TaskScreenState extends State<TaskScreen> with SingleTickerProviderStateM
 
     return Scaffold(
       appBar: AppBar(
-        // Usar traducción en el título
         title: Text("Titulo"),
         actions: [
-          // IconButton para cambiar tema claro/oscuro
+          // NUEVO: IconButton para cambiar idioma
+          IconButton(
+            icon: const Icon(Icons.language),
+            tooltip: 'Idioma / Language',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
+            },
+          ),
           Consumer<ThemeProvider>(
             builder: (context, themeProvider, child) {
               return IconButton(
@@ -79,6 +89,14 @@ class _TaskScreenState extends State<TaskScreen> with SingleTickerProviderStateM
         child: Column(
           children: [
             const Header(),
+            // NUEVO: Mensaje con pluralización dinámica
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Text(
+                localizations.pendingTasks(taskProvider.tasks.length),
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ),
             Expanded(
               child: AnimationLimiter(
                 child: ListView.builder(

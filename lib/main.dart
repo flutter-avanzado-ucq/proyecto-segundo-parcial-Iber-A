@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animaciones_notificaciones/provider_task/locale_provider.dart';
 // Integración Hive: importación de Hive Flutter
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -17,7 +18,6 @@ import 'services/notification_service.dart';
 // NUEVO: Importar AppLocalizations generado
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 
 void main() async {
   // Asegura que Flutter esté inicializado
@@ -43,7 +43,8 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TaskProvider()),
-        ChangeNotifierProvider(create: (_) => ThemeProvider()), // ✅ NUEVO
+        ChangeNotifierProvider(create: (_) => ThemeProvider()), 
+        ChangeNotifierProvider(create: (_) => LocaleProvider()), // ✅ NUEVO
       ],
       child: const MyApp(),
     ),
@@ -55,14 +56,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeProvider>(
-      builder: (context, themeProvider, _) {
+    return Consumer2<ThemeProvider, LocaleProvider>(
+      builder: (context, themeProvider, localeProvider, _) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Tareas Pro',
           theme: AppTheme.theme,
           darkTheme: ThemeData.dark(),
           themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          locale: localeProvider.locale,
 
           // NUEVO: Configuración de internacionalización
           localizationsDelegates: const [
@@ -75,6 +77,19 @@ class MyApp extends StatelessWidget {
             Locale('en'), // Inglés
             Locale('es'), // Español
           ],
+
+          // NUEVO: Callback para resolución de idioma
+          localeResolutionCallback: (locale, supportedLocales) {
+            if (localeProvider.locale != null) {
+              return localeProvider.locale;
+            }
+            for (var supported in supportedLocales) {
+              if (supported.languageCode == locale?.languageCode) {
+                return supported;
+              }
+            }
+            return supportedLocales.first;
+          },
 
           home: const TaskScreen(),
         );

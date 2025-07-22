@@ -50,6 +50,9 @@ dependencies:
   path_provider: ^2.0.3
   shared_preferences: ^2.0.15
 
+  # Nuevo: Dependencia para el clima
+  http: ^1.2.0
+
 
 dev_dependencies:
   flutter_test:

@@ -11,6 +11,8 @@ import 'settings_screen.dart'; // Importar pantalla de configuración
 // Importar AppLocalizations generado
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../provider_task/weather_provider.dart'; //nuevo import para el clima
+
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
 
@@ -28,6 +30,12 @@ class _TaskScreenState extends State<TaskScreen> with SingleTickerProviderStateM
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
+
+    //Nuevo: Carga el clima con coordenadas fijas (Querétaro)
+    Future.microtask(() async{
+      final weatherProvider = context.read<WeatherProvider>();
+      await weatherProvider.loadWeather(20.5888, -100.3899);
+    });
   }
 
   @override

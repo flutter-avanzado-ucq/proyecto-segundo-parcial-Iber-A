@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animaciones_notificaciones/provider_task/locale_provider.dart';
-// Integración Hive: importación de Hive Flutter
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'screens/tarea_screen.dart';
 import 'tema/tema_app.dart';
 import 'package:provider/provider.dart';
 import 'provider_task/task_provider.dart';
-import 'provider_task/theme_provider.dart'; // NUEVO
-
-// Importar modelo para Hive con prefijo para evitar conflicto de nombres
+import 'provider_task/theme_provider.dart';
 import 'models/task_model.dart' as hive_task;
-
-// Importar el servicio de notificaciones
 import 'services/notification_service.dart';
-
-// NUEVO: Importar AppLocalizations generado
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+// Nuevo
+import 'provider_task/weather_provider.dart';
 
 void main() async {
   // Asegura que Flutter esté inicializado
@@ -44,7 +39,8 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => TaskProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()), 
-        ChangeNotifierProvider(create: (_) => LocaleProvider()), // ✅ NUEVO
+        ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ChangeNotifierProvider(create: (_) => WeatherProvider()), //  NUEVO: para el clima
       ],
       child: const MyApp(),
     ),

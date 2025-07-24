@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-// Nuevos imports
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import '../provider_task/weather_provider.dart';
+import '../provider_task/holiday_provider.dart'; // Importar HolidayProvider
+
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -14,6 +15,10 @@ class Header extends StatelessWidget {
     //Acceso al provider del clima
     final weatherProvider = Provider.of<WeatherProvider>(context);
     final weather = weatherProvider.weatherData;
+
+    //Acceso al provider de feriados
+    final holidayProvider = Provider.of<HolidayProvider>(context);
+    final holidayToday = holidayProvider.todayHoliday;
 
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
@@ -30,7 +35,7 @@ class Header extends StatelessWidget {
         children: [
           const CircleAvatar(
             radius: 24,
-            backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=47'),
+            backgroundImage: NetworkImage('https://cdn.discordapp.com/attachments/1096223962079428608/1226650696976433334/tacako_lentes.png?ex=6882aafc&is=6881597c&hm=7b6369af59f49629842f8de6062089b550a0de2912950a66976131f6db122994&'),
           ),
           const SizedBox(width: 12),
           Column(
@@ -66,14 +71,19 @@ class Header extends StatelessWidget {
                   ],
                 ),
               if (weatherProvider.isLoading)
-                const Text(
-                  'Cargando clima...',
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
+                Text(
+                  localizations.weatherLoading,
+                  style: const TextStyle(color: Colors.white70, fontSize: 14),
                 ),
               if (weatherProvider.errorMessage != null)
                 Text(
                   weatherProvider.errorMessage!,
                   style: const TextStyle(color: Colors.red, fontSize: 14),
+                ),
+              if(holidayToday != null)
+                Text(
+                  '${localizations.holiday} ${holidayToday.localName}',
+                  style: const TextStyle(color: Colors.white, fontSize: 14),
                 ),
             ],
           ),

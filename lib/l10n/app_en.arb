@@ -40,5 +40,9 @@
   },
   "language": "Language",
   "settings": "Settings",
-  "theme": "Theme"
+  "theme": "Theme",
+  "holidayTag": "🎉 Holiday",
+  "systemDefault": "System default",
+  "weatherLoading": "Loading weather...",
+  "holiday": "🎉 Today is holiday: "
 }

@@ -40,5 +40,9 @@
   },
   "language": "Idioma",
   "settings": "Configuración",
-  "theme": "Tema"
+  "theme": "Tema",
+  "holidayTag": "🎉 Feriado",
+  "systemDefault": "Idioma del sistema",
+  "weatherLoading": "Cargando clima...",
+  "holiday": "🎉 Hoy es feriado: "
 }

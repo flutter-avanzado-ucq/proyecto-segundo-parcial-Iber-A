@@ -10,6 +10,7 @@ import 'models/task_model.dart' as hive_task;
 import 'services/notification_service.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_animaciones_notificaciones/provider_task/holiday_provider.dart'; // Importar HolidayProvider
 
 // Nuevo
 import 'provider_task/weather_provider.dart';
@@ -40,7 +41,8 @@ void main() async {
         ChangeNotifierProvider(create: (_) => TaskProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()), 
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
-        ChangeNotifierProvider(create: (_) => WeatherProvider()), //  NUEVO: para el clima
+        ChangeNotifierProvider(create: (_) => WeatherProvider()),
+        ChangeNotifierProvider(create: (_) => HolidayProvider()), // NUEVO: para los feriados
       ],
       child: const MyApp(),
     ),

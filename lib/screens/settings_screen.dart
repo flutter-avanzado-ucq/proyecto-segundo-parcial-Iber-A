@@ -9,13 +9,22 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localeProvider = Provider.of<LocaleProvider>(context);
+    final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.appTitle),
+        title: Text(localizations.settings),
       ),
       body: ListView(
         children: [
+          // Sección de idioma
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              localizations.language,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ),
           ListTile(
             title: const Text('Español'),
             trailing: localeProvider.locale?.languageCode == 'es'
@@ -37,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Usar idioma del sistema'),
+            title: Text(localizations.systemDefault),
             trailing: localeProvider.locale == null
                 ? const Icon(Icons.check)
                 : null,

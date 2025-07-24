@@ -5,8 +5,9 @@ import '../widgets/card_tarea.dart';
 import '../widgets/header.dart';
 import '../widgets/add_task_sheet.dart';
 import '../provider_task/task_provider.dart';
-import '../provider_task/theme_provider.dart'; // Nuevo import
-import 'settings_screen.dart'; // Importar pantalla de configuración
+import '../provider_task/theme_provider.dart';
+import 'settings_screen.dart';
+import 'package:flutter_animaciones_notificaciones/provider_task/holiday_provider.dart'; // Importar HolidayProvider
 
 // Importar AppLocalizations generado
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -36,6 +37,13 @@ class _TaskScreenState extends State<TaskScreen> with SingleTickerProviderStateM
       final weatherProvider = context.read<WeatherProvider>();
       await weatherProvider.loadWeather(20.5888, -100.3899);
     });
+
+    //Nuevo: Cargar feriados oficiales de México para el año actual
+    final now = DateTime.now();
+    context.read<HolidayProvider>().loadHolidays(
+      year: now.year,
+      countryCode: 'MX', // Código de país para México
+    );
   }
 
   @override
@@ -62,7 +70,6 @@ class _TaskScreenState extends State<TaskScreen> with SingleTickerProviderStateM
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Titulo"),
         actions: [
           // NUEVO: IconButton para cambiar idioma
           IconButton(
